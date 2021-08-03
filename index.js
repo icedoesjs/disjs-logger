@@ -1,12 +1,11 @@
 const chalk = require('chalk');
-const { join } = require('path');
 const { appendFileSync } = require('fs');
 const moment = require('moment');
 const time = `[${moment().format("MM-DD-YYYY HH:mm")}]`;
 
-class DJSLogger {
+class NodeLogger {
     constructor(logpath) {
-        this.logpath = join(logpath);
+        this.logpath = logpath;
         this.error = `${time} ` + chalk.bgRed(`ERROR`);
         this.normal = `${time} ` + chalk.bgBlue(`LOG`);
         this.warn = `${time} ` + chalk.bgYellow(`WARN`);
@@ -76,10 +75,6 @@ class DJSLogger {
                 this.invokeLog(path, type, content, time)
                 return console.log(this.success + mtd);
             }
-            case "perms": {
-                this.invokeLog(path, type, content, time)
-                return console.log(this.perms + mtd);
-            }
             case "nodeexc": {
                 this.invokeLog(path, type, content, time)
                 return console.log(this.nodeexc + mtd);
@@ -88,7 +83,7 @@ class DJSLogger {
                 this.invokeLog(path, type, content, time)
                 return console.log(this.noderejc + mtd)
             }
-            default: throw new TypeError(`Logger type must be specified or otherwise declared [error, log, warn, debug, ready, success, perms, nodeexc, noderejc]`)
+            default: throw new TypeError(`Logger type must be specified or otherwise declared [error, log, warn, debug, ready, success, nodeexc, noderejc]`)
         }
     }
     async invokeLog(type, path, content) {
@@ -106,7 +101,7 @@ class DJSLogger {
                         throw e;
                     })
                 }
-            case "normal": {
+            case "log": {
                 return appendFileSync(this.logpath, JSON.stringify(logObj) + "\n----------- END LOG ------\n\n", (e) => {
                     throw e;
                 })
@@ -129,4 +124,4 @@ class DJSLogger {
     }
 }
 
-module.exports = DJSLogger
+module.exports = NodeLogger
