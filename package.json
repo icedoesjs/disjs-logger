@@ -1,6 +1,6 @@
 {
   "name": "disjs-logger",
-  "version": "1.1.12",
+  "version": "1.1.15",
   "description": "A simple console output formatter to use with discord.js discord bots",
   "main": "index.js",
   "scripts": {
@@ -11,5 +11,16 @@
   "dependencies": {
     "chalk": "^4.1.1",
     "moment": "^2.29.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iceyym8/disjs-logger.git"
+  },
+  "keywords": [
+    "discord.js"
+  ],
+  "bugs": {
+    "url": "https://github.com/iceyym8/disjs-logger/issues"
+  },
+  "homepage": "https://github.com/iceyym8/disjs-logger#readme"
 }
