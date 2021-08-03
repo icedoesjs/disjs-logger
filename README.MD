@@ -13,8 +13,8 @@
 ## 📜 Usage
 ```js
 const dislogger = require('disjs-logger');
-const logger = new logger('logfilename.txt');
-
+const logger = new logger('C:\\Users\\Username\\ProjectDirectory\\logfile.txt');
+// Double back slashes are used as a single backslash is an escape character.
 logger.log("content", "type", __filename, "Message shown in console (MTD)");
 ```
 
@@ -49,5 +49,6 @@ You can find all the examples in the file called [examples.js]([https://](https:
 * [Github](https://github.com/iceyym8)
 * [Website](https://iceyym8.dev)
 
-_Made with ♥ by [IceyyM8](https://iceyym8.dev)
+Made with ♥ by [IceyyM8](https://iceyym8.dev)
 
+****
